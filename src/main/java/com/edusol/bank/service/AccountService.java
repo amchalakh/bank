@@ -4,7 +4,9 @@ import com.edusol.bank.dto.Account;
 
 public interface AccountService {
 	
-	String addAccount(Account account);
+	void addAccount(Account account);
 	Account getAccount(long id);
+	void updateAccount(Account account);
+	void deleteAccount(long l);
 
 }

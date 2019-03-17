@@ -27,20 +27,39 @@ public class AccountDaoImpl implements AccountDao {
 	
 	@Override
 	@Transactional
-	public String addAccount(Account account) {
+	public void addAccount(Account account) {
 
 		//Session session = this.sessionFactory.getCurrentSession();
 		System.out.println(account.getName());
 		System.out.println(account.getCity());
 		this.sessionFactory.getCurrentSession().save(account);
 
-		return "success";
+		return ;
 	}
 	
-	@Transactional
+	@Override
 	public Account getAccount(long id) {
 		Account account = this.sessionFactory.getCurrentSession().load(Account.class, id);
 		return account;
+	}
+	
+	
+	@Override
+	@Transactional
+	public void updateAccount(Account account) {
+		this.sessionFactory.getCurrentSession().update(account);
+
+		return ;
+	}
+	
+	@Override
+	@Transactional
+	public void deleteAccount(Long id) {
+		// TODO Auto-generated method stub
+		Account account = new Account();
+		account.setId(id);
+		this.sessionFactory.getCurrentSession().delete(account);
+		
 	}
 	/*
 	 * @Override public List<Account> findAll() { // TODO Auto-generated method stub
@@ -133,5 +152,10 @@ public class AccountDaoImpl implements AccountDao {
 	 * @Override public <S extends Account> boolean exists(Example<S> example) { //
 	 * TODO Auto-generated method stub return false; }
 	 */
+
+
+
+
+	
 
 }

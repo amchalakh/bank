@@ -7,8 +7,10 @@ import com.edusol.bank.dto.Account;
 
 public interface AccountDao {
 	
-	String addAccount(Account account);
+	void addAccount(Account account);
 	Account getAccount(long id);
+	void updateAccount(Account account);
+	void deleteAccount(Long id);
 
 	
 

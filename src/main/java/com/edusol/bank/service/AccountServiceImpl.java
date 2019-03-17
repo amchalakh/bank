@@ -15,15 +15,28 @@ public class AccountServiceImpl  implements AccountService{
 	AccountDao accountDao;
 	
 	@Override
-	public String addAccount(Account account) {
+	public void addAccount(Account account) {
 		// TODO Auto-generated method stub
 		
-		return accountDao.addAccount(account);
+		 accountDao.addAccount(account);
 	}
 
 	@Override
 	public Account getAccount(long id) {
 		// TODO Auto-generated method stub
 		return accountDao.getAccount(id);
+	}
+
+	@Override
+	public void updateAccount(Account account) {
+		// TODO Auto-generated method stub
+		 accountDao.updateAccount(account);
+	}
+
+	@Override
+	public void deleteAccount(long id) {
+		// TODO Auto-generated method stub
+		accountDao.deleteAccount(new Long(id));
+		
 	}
 }
